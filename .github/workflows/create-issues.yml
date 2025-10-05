@@ -1,0 +1,34 @@
+name: Create Forever SMP Issues
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create_issues:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create issues from JSON
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = '.github/foreversmp_issues.json';
+            if (!fs.existsSync(path)) {
+              core.setFailed('issues JSON not found: ' + path);
+              return;
+            }
+            const issues = JSON.parse(fs.readFileSync(path,'utf8'));
+            for (const it of issues) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: it.title,
+                body: it.body,
+                labels: it.labels || [],
+                assignees: it.assignees || []
+              });
+            }
