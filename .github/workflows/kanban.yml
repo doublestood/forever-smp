@@ -1,0 +1,194 @@
+[
+  {
+    "title": "Project bootstrap and repo layout",
+    "body": "Create repo skeleton (RP/, BP/full/, BP/lite/, builds/, docs/, src/) and add README, CONTRIBUTING, CODE_OF_CONDUCT.\n\nAcceptance criteria:\n- Folder layout present in repo root.\n- RP and both BP manifests valid and present.\n- README includes install and switch-to-lite instructions and brief dev workflow.\n\nMilestone: MVP\nEstimate: L",
+    "labels": ["core","documentation","priority/high","epic"],
+    "assignees": []
+  },
+  {
+    "title": "Compatibility adapter and runtime detector",
+    "body": "Implement compatibility adapter in BP/full/scripts with stubs for storage, scheduler, events, and a runtime version detector.\n\nAcceptance criteria:\n- Adapter exports storage.read, storage.write, scheduleRepeating, onPlayerInteract, showForm (stubs).\n- Startup logs runtime version using the adapter.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["core","needs-spec","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Module loader and event bus",
+    "body": "Implement module registration API and EventBus with emit/on and lifecycle hooks (init/shutdown).\n\nAcceptance criteria:\n- Modules can register/unregister.\n- EventBus unit tests for emit/on exist and pass.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["core","testing","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Storage manager (atomic json persistence)",
+    "body": "Implement namespace storage API read/write/transaction with atomic write and per-namespace backups.\n\nAcceptance criteria:\n- Read/write for players.json, claims.json, world.json works.\n- Atomic write implemented (write to temp file then rename).\n- Keeps N backups configurable.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["core","testing","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Command registry and help metadata",
+    "body": "Implement command registration API with metadata (name, aliases, usage, help, permission node) and unified help UI generator.\n\nAcceptance criteria:\n- Command registry supports metadata and registering handlers.\n- /help opens UI-generated list of commands from metadata.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["core","module:ui","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Ui builder and i18n core",
+    "body": "Central UI module that builds list menus, confirm dialogs, and input forms from locale keys.\n\nAcceptance criteria:\n- UI builder reads en_US.lang keys.\n- Compass main menu and a sample form implemented using the builder.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["module:ui","core","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Shared rp assets and locale stubs",
+    "body": "Add placeholder icons and en_US.lang entries used by the initial UI and compass menu.\n\nAcceptance criteria:\n- RP contains icons referenced by UI and en_US.lang entries for strings used by sample forms.\n\nMilestone: MVP\nEstimate: XS",
+    "labels": ["documentation","module:ui","priority/medium"],
+    "assignees": []
+  },
+  {
+    "title": "Player data model and persistence",
+    "body": "Define PlayerData JSON model and implement load/save on join/leave.\n\nAcceptance criteria:\n- PlayerData includes homes, balance, lastSeen.\n- PlayerData persists across world restarts and is accessible by modules.\n\nMilestone: MVP\nEstimate: S",
+    "labels": ["core","testing","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Homes module (ui-first)",
+    "body": "Implement /home, /sethome (/sh), /delhome (/dh) with UI-first behavior and persistence.\n\nAcceptance criteria:\n- /home opens list when no arg; selecting a home teleports.\n- /sethome opens name input when omitted; /dh opens delete UI when omitted.\n- Homes persist in PlayerData.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["module:ui","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Chunk math utilities",
+    "body": "Implement helpers for chunk coordinate conversion and rectangle chunk list generation.\n\nAcceptance criteria:\n- Unit tests validate conversions and rectangle chunk list generation correctness.\n\nMilestone: MVP\nEstimate: XS",
+    "labels": ["module:claims","testing"],
+    "assignees": []
+  },
+  {
+    "title": "Golden shovel selection (full pack)",
+    "body": "Full-pack scripted golden-shovel selection with particle outlines, opposite-corner selection, confirm UI, and finalize claim.\n\nAcceptance criteria:\n- Selection visuals show chunk borders for chosen corners.\n- Confirm UI finalizes claim and saves claim data.\n- Corner moving and cancel supported in selection workflow.\n\nMilestone: MVP\nEstimate: XL",
+    "labels": ["module:claims","module:ui","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Claim management ui and commands",
+    "body": "UI to rename, share to team, add home, trust player, unclaim, and expand/shrink claims; management commands for these operations.\n\nAcceptance criteria:\n- UI provides all listed actions and changes persist.\n- Overlap checks enforced when editing claim boundaries.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["module:claims","module:ui","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Admin claims and overlap enforcement",
+    "body": "Implement admin-level claims that cannot be overlapped and strict non-overlap enforcement for all claims.\n\nAcceptance criteria:\n- Admin claims created and flagged as immune.\n- Overlap attempts produce informative UI responses and are blocked.\n\nMilestone: MVP\nEstimate: S",
+    "labels": ["module:claims","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Team model and persistence",
+    "body": "Implement team data model (id, name, color, tag, description, members, settings) and persistence API.\n\nAcceptance criteria:\n- Teams can be created, read, updated, and deleted and data persists.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["module:teams","core"],
+    "assignees": []
+  },
+  {
+    "title": "Faction tool ui",
+    "body": "Faction creation/editing UI: name, color, 3-char tag, description; member view and disband flow.\n\nAcceptance criteria:\n- Faction creation validates inputs; members manageable; disband cleans up references and reassigns claims as configured.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["module:teams","module:ui","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Team shared claim behavior",
+    "body": "Implement team-owned claims and support shareclaims and sharemoney flags controlled by meetings or admin.\n\nAcceptance criteria:\n- Team claims honor trust/build rules and sharemoney flag affects money ops when enabled.\n\nMilestone: MVP\nEstimate: M",
+    "labels": ["module:teams","module:economy"],
+    "assignees": []
+  },
+  {
+    "title": "Economy ledger and atomic transfers",
+    "body": "Implement ledger API with add/remove/transfer operations, logging, and rate limits. Provide escrow stub for auctions.\n\nAcceptance criteria:\n- Atomic transfers pass unit tests and audit logs created for each transaction.\n\nMilestone: Beta\nEstimate: M",
+    "labels": ["module:economy","core","testing"],
+    "assignees": []
+  },
+  {
+    "title": "Shop ui and sell behavior",
+    "body": "Implement shop configuration JSON and /shop UI. /sell sells held items to server shop when enabled; bank receives funds.\n\nAcceptance criteria:\n- Shop UI lists items; purchases and sells update balances and inventories.\n- /sell is disabled when shop is toggled off in config.\n\nMilestone: Beta\nEstimate: M",
+    "labels": ["module:economy","module:ui","priority/medium"],
+    "assignees": []
+  },
+  {
+    "title": "Auctionhouse ui and escrow",
+    "body": "Auction create/list/bid flows through UI with escrow holding items until auction end and payouts processed at completion.\n\nAcceptance criteria:\n- Auctions persist and accept bids; auction end transfers item to winner and funds to seller minus fees.\n\nMilestone: Beta\nEstimate: XL",
+    "labels": ["module:economy","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Tpa system and ui prompts",
+    "body": "Implement /tpa, /tpah, /tpaccept, /tpdeny with UI-first popups, request timeouts, and rate-limits.\n\nAcceptance criteria:\n- Request flow creates UI popups for target player; accept/deny works and request state times out after configured window.\n\nMilestone: MVP\nEstimate: S",
+    "labels": ["module:ui","priority/medium"],
+    "assignees": []
+  },
+  {
+    "title": "Warps and spawn management",
+    "body": "Implement /warp (/w) UI listing, /setwarp, and /dw alias to delete warps. Warps persist.\n\nAcceptance criteria:\n- /w with no arg opens warp list UI; set/delete persist and are visible in UI.\n\nMilestone: MVP\nEstimate: S",
+    "labels": ["module:teleport","module:ui","priority/medium"],
+    "assignees": []
+  },
+  {
+    "title": "Compass and top-level ui",
+    "body": "Give compass on first join (configurable) and make it open the top-level UI. /ui opens same menu.\n\nAcceptance criteria:\n- Compass granted once on first join; interacting opens main UI; /ui opens same UI.\n\nMilestone: MVP\nEstimate: S",
+    "labels": ["module:ui","priority/medium"],
+    "assignees": []
+  },
+  {
+    "title": "Meetings proposal and voting ui",
+    "body": "Implement meeting proposal UI to choose server settings/commands to vote on, create meetings, run votes, and apply quorum logic.\n\nAcceptance criteria:\n- Meeting proposals persist; votes recorded; quorum computed and results applied or queued for admin review according to config.\n\nMilestone: Beta\nEstimate: L",
+    "labels": ["module:meetings","needs-spec","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Meeting runtime protections (full pack)",
+    "body": "Full-pack feature to teleport attendees to meeting location and apply temporary invulnerability and area restrictions during the meeting.\n\nAcceptance criteria:\n- Attendees teleported; damage and harmful effects negated for participants; leaving meeting area blocked or warned; revert state at meeting end.\n\nMilestone: Beta\nEstimate: XL",
+    "labels": ["module:meetings","priority/high","blocked"],
+    "assignees": []
+  },
+  {
+    "title": "Phase manager and automation",
+    "body": "Implement early/mid/end phases with mappings for world border, dimension locks, loot config, and /phase UI for admin or meeting-driven changes.\n\nAcceptance criteria:\n- Current phase persisted; transitions apply configured settings; /phase UI exists and /phase advance works per permission or meeting result.\n\nMilestone: Beta\nEstimate: L",
+    "labels": ["module:progression","module:ui","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "World border and dimension locks",
+    "body": "Chunk-aligned world border storage and enforcement plus dimension lock system to prevent nether/end travel when locked.\n\nAcceptance criteria:\n- Players prevented from leaving chunk-aligned border; portal/dimension travel blocked when locked; admin overrides available.\n\nMilestone: Beta\nEstimate: M",
+    "labels": ["module:progression","priority/high"],
+    "assignees": []
+  },
+  {
+    "title": "Lite claim tool (functions plan)",
+    "body": "Implement claim selection and management using functions/scoreboards/armor-stands for the Lite pack. Document limitations compared to Full.\n\nAcceptance criteria:\n- Lite pack supports golden-shovel claim creation and basic editing via functions; README documents limitations and differences.\n\nMilestone: Beta\nEstimate: XL",
+    "labels": ["module:claims","epic","blocked"],
+    "assignees": []
+  },
+  {
+    "title": "Lite shop and teleport emulation",
+    "body": "Implement shop, warp, and tpa emulation via item-click menus and functions in the Lite pack and document limitations.\n\nAcceptance criteria:\n- Basic shop, warp, and tpa flows exist using functions and item-click menus; README documents feature gaps.\n\nMilestone: Beta\nEstimate: XL",
+    "labels": ["module:economy","module:teleport","blocked"],
+    "assignees": []
+  },
+  {
+    "title": "Tests for chunk math, storage, economy transfers",
+    "body": "Add unit tests for pure-logic functions and integrate tests into CI.\n\nAcceptance criteria:\n- Tests for chunk math, storage atomic write simulation, and economy transfers run locally and pass in CI.\n\nMilestone: MVP\nEstimate: S",
+    "labels": ["testing","core"],
+    "assignees": []
+  },
+  {
+    "title": "Developer docs and update procedure",
+    "body": "Document pack structure, switching to Lite, update checklist, and compatibility adapter guidelines in docs/UPDATE.md.\n\nAcceptance criteria:\n- docs/UPDATE.md exists and contains step-by-step instructions; quick-switch tested at least once.\n\nMilestone: MVP\nEstimate: S",
+    "labels": ["documentation","core"],
+    "assignees": []
+  },
+  {
+    "title": "Build pipeline and packaging",
+    "body": "Create build script that produces combined RP + Full BP + Lite BP zip artifacts in builds/releases for distribution.\n\nAcceptance criteria:\n- Build artifacts created and manifest validated; artifacts placed in builds/releases.\n\nMilestone: Release\nEstimate: M",
+    "labels": ["core","documentation"],
+    "assignees": []
+  },
+  {
+    "title": "Localization and string centralization",
+    "body": "Centralize strings and provide en_US coverage with templates for additional locales; ensure UI uses locale keys only.\n\nAcceptance criteria:\n- All UI text uses locale keys; en_US is complete; README documents how to add languages.\n\nMilestone: Beta\nEstimate: M",
+    "labels": ["module:ui","documentation"],
+    "assignees": []
+  }
+]
