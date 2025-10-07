@@ -1,0 +1,30 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.items",
+  "texture_data": {
+      "cl_esmp:tp_tool": {
+            "textures": "textures/chunklabs/esmp/items/tptool"
+      },
+      "cl_esmp:gp_tool": {
+          "textures": "textures/chunklabs/esmp/items/gp_tool"
+      },
+      "cl_esmp:admin_tool": {
+          "textures": "textures/chunklabs/esmp/items/admintool"
+      },
+      "cl_esmp:skillbook": {
+          "textures": "textures/chunklabs/esmp/items/skillbook"
+      },
+      "cl_esmp:guidebook": {
+          "textures": "textures/chunklabs/esmp/items/guidebook"
+      },
+      "cl_esmp:torch": {
+          "textures": "textures/chunklabs/esmp/items/torch"
+      },
+      "cl_esmp:stats_tool": {
+          "textures": "textures/chunklabs/esmp/items/statstool"
+      },
+      "cl_esmp:factionmanager": {
+          "textures": "textures/chunklabs/esmp/items/fc_tool"
+      }
+}
+}

@@ -1,0 +1,1 @@
+scoreboard objectives add cl_esmp.luck dummy ""

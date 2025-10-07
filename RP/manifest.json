@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Forever SMP - Shared RP",
+    "description": "Shared resource pack for Forever SMP (models, textures, sounds, locales).",
+    "uuid": "3f8b9a2e-6c4f-4e1b-9f12-2c5a7b8d9e01",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 100]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "a1f2b3c4-5d6e-7f81-2345-6789abcdef01",
+      "version": [1, 0, 0]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.70",
+	"minecraft:item": {
+	  "description": {
+		"identifier": "cl_esmp:tp_tool"
+	  },
+	  "components": {
+		"minecraft:max_stack_size": 16,
+		"minecraft:icon": {
+		  "textures": {"default": "cl_esmp:tp_tool"}
+		},
+		"minecraft:use_modifiers": {
+            "use_duration": 200,
+            "movement_modifier": 0.9
+        },
+		"minecraft:interact_button": true,
+		"minecraft:display_name": {
+		  "value": "§fTeleportation Tool\n§r§7Interact to use\n§6Essentials§aSMP§r"
+		},
+		"menu_category": {
+			"category": "equipment"
+		},
+        "minecraft:food": {
+            "can_always_eat": false,
+            "nutrition": 1
+        }
+	}
+  }
+}

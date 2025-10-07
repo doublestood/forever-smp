@@ -1,0 +1,46 @@
+{
+	"type": "minecraftBedrock",
+	"name": "Forever SMP",
+	"namespace": "fre",
+	"authors": [
+		"gio1135"
+	],
+	"targetVersion": "1.21.110",
+	"description": "Easily create a long term, tailored experience for your Minecraft SMP",
+	"experimentalGameplay": {
+		"creationOfCustomBiomes": false,
+		"upcomingCreatorFeatures": false,
+		"experimentalCreatorCameraFeatures": false,
+		"enableGameTestFramework": false,
+		"dataDrivenJigsawStructures": false,
+		"renderDragonFeatures": false,
+		"educationEdition": false
+	},
+	"bdsProject": true,
+	"packs": {
+		"behaviorPack": "./BP",
+		"resourcePack": "./RP"
+	},
+	"worlds": [
+		"./worlds/*"
+	],
+	"compiler": {
+		"plugins": [
+			"generatorScripts",
+			"typeScript",
+			"entityIdentifierAlias",
+			"customEntityComponents",
+			"customItemComponents",
+			"customBlockComponents",
+			"customCommands",
+			"moLang",
+			"formatVersionCorrection",
+			[
+				"simpleRewrite",
+				{
+					"packName": "Forever SMP"
+				}
+			]
+		]
+	}
+}

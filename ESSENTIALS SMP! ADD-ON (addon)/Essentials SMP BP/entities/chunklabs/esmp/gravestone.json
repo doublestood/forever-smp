@@ -1,0 +1,84 @@
+
+{
+	"format_version": "1.21.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "cl_esmp:gravestone",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+			
+		},
+		"component_groups": {},
+		"components": {
+			"minecraft:type_family":{
+				"family": "inanimate"
+			},
+		"minecraft:breathable": {
+			"breathes_air": true,
+			"breathes_water": true,
+			"breathes_lava": true,
+			"breathes_solids": true
+		},
+		"minecraft:inventory": {
+			"inventory_size": 54,
+			"container_type": "inventory",
+			"restrict_to_owner": false,
+			"private": false,
+			"additional_slots_per_strength": 10
+		},
+			"minecraft:behavior.float": {
+				"priority": 19
+			},
+			"minecraft:collision_box": {
+				"width": 1,
+				"height": 1
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:follow_range": {
+				"value": 0
+			},
+			"minecraft:damage_sensor": {},
+			"minecraft:knockback_resistance": {
+				"value": 100,
+				"max": 100
+			  },
+			"minecraft:custom_hit_test":{
+				"hitboxes": [
+				{
+					"width": 1,
+					"height": 1,
+					"pivot": [ 0, 0, 0 ]
+				}
+				]
+			},
+			"minecraft:flying_speed": {
+				"value": 0
+			},
+			"minecraft:cannot_be_attacked": {},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true,
+				"push_towards_closest_space": false
+			},
+			"minecraft:can_fly": {},
+			"minecraft:health": {
+				"value": 1,
+				"max": 1
+			},
+			"minecraft:nameable": {
+				"always_show": true
+			},
+			"minecraft:persistent": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+
+			"minecraft:scale": {
+				"value": 1
+			}
+		},
+		"events": {}
+	}
+}
