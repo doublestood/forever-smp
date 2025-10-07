@@ -1,1 +1,0 @@
-#tellraw @a { "rawtext": [ { "translate": "§f[§b§l!§r§f]§r§f EssentialsSMP§a active" } ] }
